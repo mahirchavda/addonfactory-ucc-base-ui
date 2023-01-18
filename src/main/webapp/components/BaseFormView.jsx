@@ -488,7 +488,7 @@ class BaseFormView extends PureComponent {
                     parameters = `${parameters}&state=${this.oauth_state}`;
                 }
 
-                const host = `https://${this.datadict.endpoint}${this.oauthConf.authCodeEndpoint}${parameters}`;
+                const host = `https://${this.datadict.endpoint}${this.oauthConf.authCodeEndpoint}${this.datadict.client_id}${parameters}`;
                 (async () => {
                     this.isCalled = false;
                     this.isError = false;
@@ -881,7 +881,7 @@ class BaseFormView extends PureComponent {
             body.append(key, data[key]);
         });
 
-        const OAuthEndpoint = `${this.appName}_oauth/oauth`;
+        const OAuthEndpoint = `TA_lansweeper_add_on_for_splunk_oauth/oauth`;
         // Internal handler call to get the access token and other values
         axiosCallWrapper({
             endpointUrl: OAuthEndpoint,
